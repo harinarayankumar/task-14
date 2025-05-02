@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript</title>
+<style>
+body {
+      font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+h2 {
+    color: #444;
+        }
+.result {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="output"></div>
+
+<script>
+// Helper function to show output on the page
+function show(result) {
+document.getElementById("output").innerHTML += "<div class='result'>" + result + "</div>";
+        }
+
+// 1. Filter out negative numbers
+function filterNegatives(arr) {
+return arr.filter(num => num >= 0);
+        }
+show("1. Filter Negatives: " + filterNegatives([2, -3, 4, -6, 0, 12]));
+
+// 2. Difference from 13 with condition
+function diffFrom13(num) {
+const diff = Math.abs(num - 13);
+return num > 13 ? diff * 2 : diff;
+        }
+show("2. Difference from 13 (20): " + diffFrom13(20));
+show("2. Difference from 13 (10): " + diffFrom13(10));
+
+// 3. Fibonacci series
+function fibonacciSeries(n) {
+let fib = [0, 1];
+for (let i = 2; i < n; i++) {
+fib[i] = fib[i - 1] + fib[i - 2];
+            }
+return fib.slice(0, n);
+        }
+show("3. Fibonacci Series (10 terms): " + fibonacciSeries(10).join(", "));
+
+// 4. Sum of multiples of 3 and 5 under 1000
+function sumMultiplesOf3And5(limit) {
+let sum = 0;
+for (let i = 0; i < limit; i++) {
+if (i % 3 === 0 || i % 5 === 0) {
+sum += i;
+                }
+            }
+return sum;
+        }
+show("4. Sum of multiples of 3 and 5 under 1000: " + sumMultiplesOf3And5(1000));
+
+// 5. Cube of a number using Function object
+let cube = new Function("num", "return num * num * num;");
+show("5. Cube of 3 using Function object: " + cube(3));
+</script>
+</body>
+</html>
